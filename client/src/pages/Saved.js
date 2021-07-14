@@ -53,6 +53,8 @@ class Saved extends Component {
     // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     // const classes = useStyles();
     render() {
+        const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const classes = useStyles();
         return (
             <React.Fragment>
               <CssBaseline />
@@ -137,7 +139,8 @@ class Saved extends Component {
               </footer>
               {/* End footer */}
             </React.Fragment>
-        };
+        );
+    };
 }
 
 export default Saved;
