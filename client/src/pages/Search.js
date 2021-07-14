@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function search() {
+function Search() {
     const [formObject, setFormObject] = useState({})
     const classes = useStyles();
   
@@ -93,7 +93,6 @@ function search() {
             </form>
         </div>
         <Box mt={8}>
-            <Copyright />
         </Box>
         </Container>
     );
