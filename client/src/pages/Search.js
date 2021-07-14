@@ -99,4 +99,4 @@ function search() {
     );
   }
   
-export default search;
+export default Search;
