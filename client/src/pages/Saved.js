@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 // import { useParams } from "react-router-dom";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
+// import Avatar from "@material-ui/core/Avatar";
+// import Button from "@material-ui/core/Button";
+// import CssBaseline from "@material-ui/core/CssBaseline";
+// import TextField from "@material-ui/core/TextField";
 // import Link from '@material-ui/core/Link';
-import Grid from "@material-ui/core/Grid";
+// import Grid from "@material-ui/core/Grid";
 // import Box from '@material-ui/core/Box';
-import MenuBookIcon from "@material-ui/icons/MenuBook";
-import Typography from "@material-ui/core/Typography";
+// import MenuBookIcon from "@material-ui/icons/MenuBook";
+// import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 // import Container from "@material-ui/core/Container";
 import { Container } from "../Components/Container";
@@ -16,7 +16,7 @@ import Card from "../Components/Card";
 // import List from "@material-ui/core/List";
 // import ListItem from "../Components/ListItem";
 import { List } from "../Components/List";
-import GridList from '@material-ui/core/GridList';
+// import GridList from '@material-ui/core/GridList';
 import FeaturedPost from "../Components/FeaturedPost";
 // import Form from '../Components/Form';
 import API from "../utils/API";
@@ -78,16 +78,16 @@ class Saved extends Component {
             <List>
               {this.state.books.map((book) => (
                 <FeaturedPost
-                  key={book.id}
-                  title={book.volumeInfo.title}
-                  subtitle={book.volumeInfo.subtitle}
-                  link={book.volumeInfo.infoLink}
-                  authors={book.volumeInfo.authors.join(", ")}
-                  description={book.volumeInfo.description}
-                  image={book.volumeInfo.imageLinks.thumbnail}
+                  key={book._id}
+                  title={book.title}
+                  subtitle={book.subtitle}
+                  link={book.link}
+                  authors={book.authors}
+                  description={book.description}
+                  image={book.image}
                   Button={() => (
                     <button
-                      onClick={() => this.handleSaveBook(book.id)}
+                      onClick={() => this.handleBookDelete(book._id)}
                       className="btn btn-primary ml-2"
                     >
                       Delete from Saved Books

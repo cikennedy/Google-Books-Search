@@ -80,16 +80,29 @@ class Search extends Component {
     this.getBooks();
   };
 
-  handleSaveBook = (id) => {
+  // handleBookSave = (id) => {
+  //   const book = this.state.books.find(book => book.id === id);
+
+  //   API.saveBook({
+  //     title: book.volumeInfo.title,
+  //     authors: book.volumeInfo.authors,
+  //     description: book.volumeInfo.description,
+  //     image: book.volumeInfo.image,
+  //     link: book.volumeInfo.link,
+  //     googleId: book.id,
+  //   }).then(() => this.getBooks());
+  // };
+
+  handleBookSave = id => {
     const book = this.state.books.find(book => book.id === id);
 
     API.saveBook({
-      googleId: book.id,
       title: book.volumeInfo.title,
       authors: book.volumeInfo.authors,
       description: book.volumeInfo.description,
-      image: book.volumeInfo.image,
-      link: book.volumeInfo.link,
+      image: book.volumeInfo.imageLinks.thumbnail,
+      link: book.volumeInfo.infoLink,
+      googleId: book.id
     }).then(() => this.getBooks());
   };
 
@@ -149,7 +162,7 @@ class Search extends Component {
                   image={book.volumeInfo.imageLinks.thumbnail}
                   Button={() => (
                     <button
-                      onClick={() => this.handleSaveBook(book.id)}
+                      onClick={() => this.handleBookSave(book.id)}
                       className="btn btn-primary ml-2"
                     >
                       Save

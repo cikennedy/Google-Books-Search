@@ -45,7 +45,7 @@ export default function FeaturedPost({ title, authors, link, description, image,
               <img src={image} alt={title}></img>
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                <a href={link}>View Book on Google Books</a>
+                <a className="btn btn-primary ml-2" href={link}>View Book on Google Books</a>
                 <Button />
               </Typography>
             </CardContent>
