@@ -121,7 +121,7 @@ class Search extends Component {
 
     <Container maxWidth="lg">
         <main>
-          <Grid container spacing={4}>
+          <Grid container spacing={3}>
             {this.state.books.map((book) => (
               <FeaturedPost 
               key={book.id} 
