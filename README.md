@@ -15,6 +15,8 @@
 
   * [Badges](#badges)
 
+  * [Credits](#credits)
+
   * [Questions](#questions)
 
   ## Installation
@@ -31,12 +33,11 @@
 
   [GitHub Repository](https://github.com/cikennedy/Google-Books-Search)
 
-  ![Stats - Workout Duration](./assets/graph1.png)
+  ![Search Page](./assets/Search.png)
 
-  ![Stats - Weight](./assets/graph2.png)
+  ![Search Results](./assets/Results.png)
 
-  ![Successful Test Posts - API Route](./assets/success-api.png)
-
+  ![Saved Page](./assets/Saved.png)
 
   ## License
 
@@ -45,6 +46,10 @@
   ## Badges
 
   ![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)
+
+  ## Credits
+
+  Many of the components and pages were used from templates and source code from the React Framework[Material-UI](https://material-ui.com/). 
 
   ## Questions
 
