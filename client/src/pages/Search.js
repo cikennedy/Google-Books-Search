@@ -18,6 +18,7 @@ import Card from "../Components/Card";
 import { List } from "../Components/List";
 import GridList from '@material-ui/core/GridList';
 import FeaturedPost from "../Components/FeaturedPost";
+// import Form from '../Components/Form';
 import API from "../utils/API";
 
 const styles = (theme) => ({
@@ -80,7 +81,7 @@ class Search extends Component {
   };
 
   handleSaveBook = (id) => {
-    const book = this.state.books.find((book) => book.id === id);
+    const book = this.state.books.find(book => book.id === id);
 
     API.saveBook({
       googleId: book.id,
@@ -107,8 +108,8 @@ class Search extends Component {
           <form
             className={classes.form}
             noValidate
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
+            // handleFormSubmit={this.handleFormSubmit}
+            // handleInputChange={this.handleInputChange}
             search={this.state.search}
           >
             <TextField
@@ -148,7 +149,7 @@ class Search extends Component {
                   image={book.volumeInfo.imageLinks.thumbnail}
                   Button={() => (
                     <button
-                      onClick={() => this.handleBookSave(book.id)}
+                      onClick={() => this.handleSaveBook(book.id)}
                       className="btn btn-primary ml-2"
                     >
                       Save

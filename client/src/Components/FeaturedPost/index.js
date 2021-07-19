@@ -45,13 +45,14 @@ export default function FeaturedPost({ title, authors, link, description, image,
               <img src={image} alt={title}></img>
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                <a href={link}>View Book</a>
+                <a href={link}>View Book on Google Books</a>
+                <Button />
               </Typography>
             </CardContent>
           </div>
-          <Hidden xsDown>
+          {/* <Hidden xsDown>
             <CardMedia className={classes.cardMedia} image={image} title={title} />
-          </Hidden>
+          </Hidden> */}
         </Card>
       </CardActionArea>
     </ListItem>
