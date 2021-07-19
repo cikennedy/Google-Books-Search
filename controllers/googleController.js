@@ -19,7 +19,7 @@ module.exports = {
                     result.volumeInfo.imageLinks.thumbnail
             )
         ).then(apiBooks =>
-            db.Book.find().then(dbBook => 
+            db.Book.find().then(dbBooks => 
                 apiBooks.filter(apiBook => 
                     dbBooks.every(dbBook => dbBook.googleId.toString() !== apiBook.id)
                 )

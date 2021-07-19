@@ -5,12 +5,14 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import Link from '@material-ui/core/Link';
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 // import Box from '@material-ui/core/Box';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+// import Header from '../Components/Header';
+import FeaturedPost from '../Components/FeaturedPost';
 import API from "../utils/API";
 
 const styles = (theme) => ({
@@ -77,6 +79,7 @@ class Search extends Component {
   };
 
   render() {
+  const { classes } = this.props;
     return (
     <Container component="main" maxWidth="xs">
     <CssBaseline />
@@ -87,7 +90,11 @@ class Search extends Component {
         <Typography component="h1" variant="h5">
        Search for a book!
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate
+        handleFormSubmit={this.handleFormSubmit}
+        handleInputChange={this.handleInputChange}
+        search={this.state.search}
+        >
         <TextField
             variant="outlined"
             margin="normal"
@@ -98,10 +105,10 @@ class Search extends Component {
             name="search"
             // autoComplete="Book"
             autoFocus
-            onChange={handleInputChange}
+            onChange={this.handleInputChange}
         />
         <Button
-            onClick={handleFormSubmit}
+            onClick={this.handleFormSubmit}
             fullWidth
             variant="contained"
             color="primary"
@@ -111,6 +118,33 @@ class Search extends Component {
         </Button>
         </form>
     </div>
+
+    <Container maxWidth="lg">
+        <main>
+          <Grid container spacing={4}>
+            {this.state.books.map((book) => (
+              <FeaturedPost 
+              key={book.id} 
+              title={book.volumeInfo.title}
+              authors={book.volumeInfo.authors}
+              description={book.volumeInfo.description}
+              image={book.volumeInfo.imageLinks.thumbnail}
+              link={book.volumeInfo.infoLink}
+              Button={() => (
+                <Button
+                onClick={() => this.handleSaveBook(book.id)}
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}>
+                  Save Book
+                </Button>
+              )}
+             />
+             ))}
+          </Grid>
+        </main>
+      </Container>
     {/* <Row>
       <Col size="md-12">
         <Card title="Results">
