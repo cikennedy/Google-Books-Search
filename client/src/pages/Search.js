@@ -11,7 +11,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import Header from '../Components/Header';
+import Card from '../Components/Card';
 import FeaturedPost from '../Components/FeaturedPost';
 import API from "../utils/API";
 
@@ -39,6 +39,7 @@ class Search extends Component {
   state = {
     books: [],
     search: "",
+    message: "",
   };
 
   handleInputChange = event => {
@@ -55,7 +56,8 @@ class Search extends Component {
     })
     ).catch(() => 
     this.setState({
-      books: []
+      books: [],
+      message: "No books found with the given search."
     })
     );
   };
@@ -119,8 +121,11 @@ class Search extends Component {
         </form>
     </div>
 
+    
+
     <Container maxWidth="lg">
-        <main>
+    <Card title="Search Results">
+      {this.state.books.length ? (
           <Grid container spacing={3}>
             {this.state.books.map((book) => (
               <FeaturedPost 
@@ -143,39 +148,12 @@ class Search extends Component {
              />
              ))}
           </Grid>
-        </main>
-      </Container>
-    {/* <Row>
-      <Col size="md-12">
-        <Card title="Results">
-          {this.state.books.length ? (
-            <List>
-              {this.state.books.map(book => (
-                <Book
-                  key={book.id}
-                  title={book.volumeInfo.title}
-                  subtitle={book.volumeInfo.subtitle}
-                  link={book.volumeInfo.infoLink}
-                  authors={book.volumeInfo.authors.join(", ")}
-                  description={book.volumeInfo.description}
-                  image={book.volumeInfo.imageLinks.thumbnail}
-                  Button={() => (
-                    <button
-                      onClick={() => this.handleBookSave(book.id)}
-                      className="btn btn-primary ml-2"
-                    >
-                      Save
-                    </button>
-                  )}
-                />
-              ))}
-            </List>
           ) : (
-            <h2 className="text-center">{this.state.message}</h2>
+            <h2>{this.state.message}</h2>
           )}
         </Card>
-      </Col>
-    </Row> */}
+      </Container>
+      
     </Container>
     );
   }
