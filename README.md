@@ -27,7 +27,7 @@
 
   The application can be used via the browser at the below deployed link: 
 
-  [Heroku Deployment](https://greve-vin-26163.herokuapp.com/)
+  [Heroku Deployment](https://google-books-dashboard-app.herokuapp.com/)
 
   The application's GitHub repository can be found below:
 
